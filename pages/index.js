@@ -30,24 +30,26 @@ const horizontalCardList = new Section({
   }
 }, cardListSelector);
 
-//render the toggle switches
 const filterList = new Section({
   data: filterButtons,
   renderer: (item) => {
-    const filterButton = new FilterButton({data: item}, FilterButtonTemplate);
+    const filterButton = new FilterButton({
+      data: item,
+      handleButtonClick: (isGrid) => {
+        if (isGrid) {
+          defaultCardList.clear();
+          defaultCardList.renderItems()
+        } else {
+          horizontalCardList.clear();
+          horizontalCardList.renderItems()
+        }
+      }
+    }, filterButtonTemplate);
+
     const filterButtonElement = filterButton.generateButton();
     filterList.setItem(filterButtonElement);
   }
-  }, filterListSelector);
-
-defaultCardButton.addEventListener("click", () => {
-  defaultCardList.renderItems();
-});
-
-horizontalCardButton.addEventListener("click", () => {
-  horizontalCardList.renderItems();
-});
+}, filterListSelector);
 
 defaultCardList.renderItems();
-
 filterList.renderItems();

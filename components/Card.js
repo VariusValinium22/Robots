@@ -1,8 +1,4 @@
-import {
-  popupImage,
-  popupElement,
-  popupCloseButton,
-} from "../utils/constants.js";
+import { popupImage, popupElement, popupCloseButton } from "../utils/constants.js";
 
 export default class Card {
   constructor(cardSelector) {
@@ -12,7 +8,8 @@ export default class Card {
   _getTemplate() {
     const cardElement = document
       .querySelector(this._cardSelector)
-      .content.querySelector(".card")
+      .content
+      .querySelector(".card")
       .cloneNode(true);
 
     return cardElement;

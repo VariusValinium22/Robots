@@ -28,12 +28,12 @@ export const items = [
 export const filterButtons = [
   {
     buttonClass: "filter__button_type_grid",
-    isGrid: true
+    isGrid: true,
   },
   {
     buttonClass: "filter__button_type_column",
-    isGrid: false
-  }
+    isGrid: false,
+  },
 ];
 
 export const cardListSelector = ".card-list__items";
@@ -50,4 +50,3 @@ export const defaultCardButton = document.querySelector(
 export const horizontalCardButton = document.querySelector(
   ".filter__button_type_column"
 );
-
